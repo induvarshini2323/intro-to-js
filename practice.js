@@ -47,6 +47,48 @@ function student() {
     console.log (`my college is ${college}`);
      percentage=80;
     console.log(`my percentage is ${percentage}`);
+
+if (percentage >= 75) {
+    let grade = "A";
+    console.log(`my grade is ${grade}`);
+}
+
 }
 student();
 console.log(`my percentage is ${percentage}`);
+
+let total = 0;
+
+function addBonus () {
+    let total = 100; 
+    console.log(`inside addBonus, total is ${total}`);
+}
+
+addBonus();
+console.log(`outside addBonus, total is ${total}`);
+
+
+function formatPrice(amount, currencySymbol ="₹") {
+    return `${currencySymbol}${amount.toFixed(2)}`;
+}
+function describeItem(itemName, price) {
+    const priceText = formatPrice(price);
+    return `${itemName}: ${priceText}`;
+}
+console.log(describeItem("notebook", 149));
+
+let fruits=["Apple", "Banana", "cherry", "grapes"];
+
+console.log(fruits[3]);
+fruits.push("blackberry");
+console.log(fruits);
+
+fruits.pop();
+console.log(fruits);
+
+fruits[3]="orange";
+console.log(fruits);
+
+
+let students= ["john", "jane", "jim", "jill"];
+console.log(students[2]);
