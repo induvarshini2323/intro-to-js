@@ -40,6 +40,7 @@ projects.forEach(project => {
 const formattedprojects = 
 projects.map(project => {
     return `${project.title}-${project.description} [${project.category}]`;
+    
 });
 console.log(formattedprojects);
 
