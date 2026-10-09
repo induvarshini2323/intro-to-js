@@ -83,4 +83,61 @@ if (hours < 12) {
 const greetingElement = document.querySelector("#greeting");
 greetingElement.textContent = `Good ${timeOfDay}! thank you!`
 
+const navToggle = document.querySelector('#navToggle');
+const siteNav = document.querySelector('#siteNav');
 
+ navToggle.addEventListener('click', function() {
+     siteNav.classList.toggle('nav-open');
+});
+
+const themeToggle = document.querySelector("#darkAndLight")
+themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('darkMode');
+});
+
+const message = document.querySelector('#message');
+const chartCount = document.querySelector('#chartcount');
+
+ if(message && chartCount) {
+message.addEventListener('input', function(event) {
+    chartCount.textContent = event.target.value.length + ' / 200'
+})
+ }
+
+ document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {        
+        siteNav.classList.remove('nav-open')
+    }
+ })
+
+ const snacks = [
+    { name: "apple", price:1.5},
+    { name: "garnola Bac", price:2.0},
+    { name: "trail mix", price: 3.25}
+ ];
+ const snackList = document.querySelector("#snackList");
+
+ const html = snacks.map(function (snack) {
+    return `<li>${snack.name} - $${snack.price.toFixed(2)}</li>`;
+ }).join("")
+
+ snackList.innerHTML = html
+
+
+ const  projects = [
+    {id: 1,
+         title : "portfolio website",
+        description : " A personal  portfolio website using HTML and CSS. "},
+        {
+         id:2,
+        title:"caluculator",
+         description : " a simple caluculator application.",
+
+        }
+    ];
+const projectList =document.querySelector("#projectList");
+
+const html1 = projects.map(function (project){
+    return `<li>${project.id} - ${project.title}- ${project.description}</li>`;
+}).join("")
+projectList.innerHTML = html1

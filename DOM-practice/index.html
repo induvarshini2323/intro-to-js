@@ -8,6 +8,15 @@
     <script src="app.js" defer></script>
 </head>
 <body>
+    <button id="navToggle" aria-label="Toggle navigation menu">menu</button>
+    <button id="darkAndLight" aria-label="Toggle light and dark mode"></button>
+    <nav id="siteNav">
+        <a href="" target="_blank">home</a>
+         <a href="" target="_blank">about</a>
+         <a href="" target="_blank">project</a>
+         <a href="" target="_blank">contact</a>
+
+    </nav>
     <h1 id = "title">DOM-practice</h1>
     <p class="message">the document obeject model programming.</p>
 
@@ -30,7 +39,11 @@
 <div id="box"></div>
 <h2 id="greeting"></h2>
    
-
+<label for="message">message</label>
+<textarea id="message" maxlength="200"></textarea>
+<p id="chartCount">0 / 200</p>
+<ul id="snackList"></ul>
+<ul id="projectList"></ul>
 <footer>
     &copy; <span id="year">2022</span> My portfolio
 </footer>

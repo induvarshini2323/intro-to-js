@@ -3,3 +3,19 @@
     color: red;
     padding:10;
 }
+
+#siteNav {
+    display: none;
+}
+
+#siteNav.nav-open {
+    display: flex;
+    flex-direction: column;
+}
+.darkMode {
+    background-color: #1a1a1a;
+    color: white;
+}
+.darkMode a {
+    color: #8ab48a;
+}
