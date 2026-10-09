@@ -1,7 +1,86 @@
-document.querySelector ("h1").textContent="DOM day 1 practice"
-document.querySelector ("p").textContent="it acts as a bridge that connects web page to scripts. "
-document.querySelector ("h2").textContent="DOM practice"
+//document.querySelector ("h1").textContent="DOM day 1 practice"
 
-document.querySelector ("em").textContent="refers to the web page or HTML file you load in the browser."
-document.querySelector ("strong").textContent="the hierarchical layout or structure that represents how all these objects are arranged."
+//document.querySelector ("h2").textContent="DOM practice"
+
+//document.querySelector ("em").textContent="refers to the web page or HTML file you load in the browser."
+//document.querySelector ("strong").textContent="the hierarchical layout or structure that represents how all these objects are arranged."
+const numberOfPTag = document.querySelector("p")
+console.log(numberOfPTag);
+
+const heading = document.querySelector("#title");
+console.log(heading);
+heading.textContent = "welcome to siu"
+
+const pTags = document.querySelectorAll(".message");
+console.log(pTags);
+pTags.forEach((content, i) =>content.textContent = `welcome buddy ${i+1} `);
+
+
+//const emTags = document.querySelector("em")
+//console.log(emTags)
+
+
+const announcement = document.querySelector("#announcement")
+announcement.innerHTML = "<em>tomorrow</em> is an <strong>Exam Day</strong>!"
+
+const link = document.querySelector("#myLink");
+console.log(link.getAttribute("href"));
+
+link.setAttribute("href", "https://google.com")
+console.log(link.getAttribute("href"));
+
+const image = document.querySelector("#myImage");
+console.log(image.getAttribute("src"));
+
+const resultTitle = document.querySelector("#result")
+resultTitle.classList.add("highlight")
+
+resultTitle.classList.remove("highlight")
+
+resultTitle.classList.toggle("highlight")
+
+//create a HTML tag
+const newParagraph = document.createElement("p")
+newParagraph.textContent = "Welcome to javascript class"
+document.querySelector(".message").appendChild(newParagraph);
+
+
+const boxContainer =  document.getElementById("box")
+
+const newParagraph2 = document.createElement("p")
+newParagraph2.textContent = "Welcome to python class"
+boxContainer.appendChild(newParagraph2)
+
+const newParagraph3 = document.createElement("p")
+newParagraph3.textContent = "welcome to DSA class"
+
+const newParagraph4 = document.createElement("p")
+newParagraph4.textContent ="welcome to computer fundamentals class"
+
+boxContainer.append(newParagraph3, newParagraph4, "welcome to CN class")
+
+//Automate update the year
+//DATE
+const date = new Date();
+const yearSpan = document.querySelector("#year");
+const currentYear = new Date().getFullYear()
+yearSpan.textContent = currentYear
+
+const hours = new Date ().getHours()
+
+let timeOfDay;
+
+if (hours < 12) {
+    timeOfDay ="  Morning";
+} else if (hours < 16) {
+    timeOfDay = "Afternoon"
+} else if (hours < 20) {
+    timeOfDay = " Evening"
+} else  {
+    timeOfDay = "Night"
+}
+
+const greetingElement = document.querySelector("#greeting");
+greetingElement.textContent = `Good ${timeOfDay}! thank you!`
+
 
