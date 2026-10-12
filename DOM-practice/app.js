@@ -96,7 +96,7 @@ themeToggle.addEventListener('click', function() {
 });
 
 const message = document.querySelector('#message');
-const chartCount = document.querySelector('#chartcount');
+const chartCount = document.querySelector('#chartC ount');
 
  if(message && chartCount) {
 message.addEventListener('input', function(event) {
@@ -113,7 +113,8 @@ message.addEventListener('input', function(event) {
  const snacks = [
     { name: "apple", price:1.5},
     { name: "garnola Bac", price:2.0},
-    { name: "trail mix", price: 3.25}
+    { name: "trail mix", price: 3.25},
+    {name: "blueberry", price: 4.00}
  ];
  const snackList = document.querySelector("#snackList");
 
@@ -127,17 +128,69 @@ message.addEventListener('input', function(event) {
  const  projects = [
     {id: 1,
          title : "portfolio website",
-        description : " A personal  portfolio website using HTML and CSS. "},
+        description : " A personal  portfolio website using HTML and CSS. ",
+        category: "web",
+    },
         {
          id:2,
         title:"caluculator",
          description : " a simple caluculator application.",
-
+        category: "javaScript",
         }
     ];
-const projectList =document.querySelector("#projectList");
+    function renderProjects(projectList) {
+        const grid = document.querySelector("#projectGrid");
 
-const html1 = projects.map(function (project){
-    return `<li>${project.id} - ${project.title}- ${project.description}</li>`;
-}).join("")
-projectList.innerHTML = html1
+        const cardsHTML = projectList.map(function (project) {
+            return `
+            <div class="project-card">
+              <h3>${project.title}</h3>
+              <p>${project.description}</p>
+              </div>
+              `
+        }).join("")
+        grid.innerHTML = cardsHTML
+    }
+//const projectList =document.querySelector("#projectList");
+
+//const html1 = projects.map(function (project){
+    //return `<ol>${project.id} - ${project.title}- ${project.description}</ol>`;
+
+
+
+
+
+console.log(projects.filter(project => project.category ==="web"))
+
+console.log(projects.map(project => project.category));
+
+
+console.log( new Set(projects.map(project => project.category)));
+
+console.log(["All", ...new Set(projects.map(project => project.category))]);
+
+function renderFilterButton() {
+     const categories = ["All", ...new Set(projects.map(project => project.category))];
+     const buttonHtml = categories.map(function (category) {
+        return `<button class="filter-btn" data-tag = "${category}"> ${category} </button>`
+     }).join("")
+
+     document.querySelector("#filterButton").innerHTML = buttonHtml
+
+     document.querySelector("#filterButton").addEventListener('click',function (event) {
+
+          if (event.target.matches(".filter-btn")) {
+            applyFilters(event.target.dataset.tag)
+          }
+     })
+}
+
+renderFilterButton();
+
+function applyFilters(category) {
+    if (category === "All") {
+        renderProjects(projects)
+    } else {
+        renderProjects(projects.filter(project => project.category === category));
+    }
+}
