@@ -1,3 +1,18 @@
+//Apply saved theme
+const savedTheme = localStorage.getItem('theme');
+console.log(`last saved theme is ${savedTheme}`)
+if (savedTheme === 'dark') {
+    document.body.classList.add('darkMode');
+}
+
+
+
+
+
+
+
+
+
 //document.querySelector ("h1").textContent="DOM day 1 practice"
 
 //document.querySelector ("h2").textContent="DOM practice"
@@ -93,7 +108,17 @@ const siteNav = document.querySelector('#siteNav');
 const themeToggle = document.querySelector("#darkAndLight")
 themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('darkMode');
+    if (document.body.classList.contains('darkMode')) {
+         localStorage.setItem('theme', 'dark')
+    } else { 
+   localStorage.setItem('theme', 'light');
+    }
 });
+
+
+
+
+
 
 const message = document.querySelector('#message');
 const chartCount = document.querySelector('#chartC ount');
@@ -285,3 +310,47 @@ let favouriteThings = ['coading',  'music',  'cooking' ]
 localStorage.setItem('favourite',JSON.stringify (favouriteThings));
 console.log(localStorage.getItem('favourite'))
 console.log(JSON.parse(localStorage.getItem('favourite'))[1]);
+
+
+
+const contactForm1=
+document.getElementById('contact-form');
+
+contactForm.addEventListener("submit", function(event) {
+    event.preventDefault()
+
+
+const name =
+document.getElementById("name").value;
+const email =
+document.getElementById("email").value;
+const message1 =
+document.getElementById("message1").value;
+
+const formDate = {
+    name:name,
+    email:email,
+    message1:message1
+};
+
+let savedDate =
+JSON.parse(localStorage.getItem('contactDate'));
+
+savedDate. push (formDate);
+
+localStorage.setItem("contactDate",
+    JSON.stringify(savedDate)
+);
+
+document.getElementById("form-success"). textContent="message saved successfully"
+
+
+contactForm.reset();
+console.log("saved Data:", savedDate);
+});
+
+
+
+
+
+
