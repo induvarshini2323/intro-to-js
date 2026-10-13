@@ -19,3 +19,18 @@
 .darkMode a {
     color: #8ab48a;
 }
+
+
+.error-message {
+    display: none;
+    color: #c0392b;
+    font-size: 14px;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message {
+    color: #1e8449;
+}

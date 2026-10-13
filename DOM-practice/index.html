@@ -51,6 +51,40 @@
 <div id="projectGrid"></div>
 </section>
 
+
+<form id="contact-form" novalidate>
+    <div class="field">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name">
+        <span class="error-message" id="name-error">please enter your name.</span>
+    </div>
+
+<div class="field">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email">
+    <span class="error-message" id="email-error">please enter your valid email.</span>
+</div>
+
+<div class="field">
+    <label for="message1">message</label>
+    <textarea id="message1" name="message1" r0w="4"></textarea>
+    <span class="error-message" id="message-error">please enter a message</span>
+</div>
+
+  <button type="submit">send message</button>
+  <p id="form-success" class="success-message"></p>
+
+
+</form>
+
+
+
+
+
+
+
+
+
 <footer>
     &copy; <span id="year">2022</span> My portfolio
 </footer>

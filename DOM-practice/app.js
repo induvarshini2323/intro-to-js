@@ -194,3 +194,94 @@ function applyFilters(category) {
         renderProjects(projects.filter(project => project.category === category));
     }
 }
+
+
+
+const contactForm = document.querySelector('#contact-form');
+
+//contactForm.addEventListener('submit', function (event) {
+   // event.preventDefault();
+  //  console.log('submit intercepited - the page did not reload');
+//});
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+     const name=document.querySelector("#name").value.trim();
+     const email=document.querySelector("#email").value.trim();
+     const message1=document.querySelector("#message1").value.trim();
+     
+    let isFormValid = formValidation(name, email, message)
+
+console.log(`isFormValid: ${isFormValid}`)
+    if (formValidation(name,email,message)) {
+        console.log({name, email, message})
+    }
+
+     
+})
+
+function isEmailValid(value) {
+   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+   return emailPattern.test(value);
+}
+
+console.log(isEmailValid('uppalapatiinduvarshini@gmail.com'))
+
+function showError(fieldId, show) {
+    const errorElement = document.querySelector(`#${fieldId}-error`);
+    errorElement.classList.toggle('show', show);
+}
+
+function formValidation(name, email, message) {
+   let isValid= true;
+
+   if (name ==="") {
+     showError('name', true);
+     isValid = false;
+   } else {
+    showError('name', false);
+   }
+
+   if (email === '' || !isEmailValid(email)) {
+      showError('email', true);
+      isValid = false
+   } else {
+     showError('email', false);
+   }
+
+    if (message === '') {
+        showError('message', true);
+        isValid = false
+    } else {
+        showError('message',false)
+    }
+
+    return isValid;
+}
+    
+
+localStorage.setItem('color', 'blue');
+console.log(localStorage.getItem('color'))
+localStorage.removeItem('color');
+console.log(localStorage.getItem('color'))
+
+let student = { name: 'induvarshini', favouriteSubject: 'javascript'}
+localStorage.setItem('student1',JSON.stringify (student))
+console.log(localStorage.getItem('student1'))
+
+console.log(JSON.parse(localStorage.getItem('student1')).favouriteSubject)
+
+let student1 = { college: 'siu', branch: 'STAI'}
+localStorage.setItem('student2',JSON.stringify (student1))
+
+// localStorage.setItem()
+
+//1. save an arrey of 3 favourite things under key 'favourites',
+// json stringify.
+//2. reload it, then parse the data with json parse and console log
+// second item of the array
+//3. find the raw string in the application tab.
+
+let favouriteThings = ['coading',  'music',  'cooking' ]
+localStorage.setItem('favourite',JSON.stringify (favouriteThings));
+console.log(localStorage.getItem('favourite'))
+console.log(JSON.parse(localStorage.getItem('favourite'))[1]);
