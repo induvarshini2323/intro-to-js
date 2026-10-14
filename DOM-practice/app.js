@@ -231,14 +231,30 @@ const contactForm = document.querySelector('#contact-form');
 contactForm.addEventListener('submit', function(event) {
     event.preventDefault();
      const name=document.querySelector("#name").value.trim();
+     localStorage.setItem('name', JSON.stringify(name))
+     console.log(localStorage.getItem('name'))
+
      const email=document.querySelector("#email").value.trim();
+      localStorage.setItem('Email',JSON.stringify(email))
+      console.log(localStorage.getItem('Email'))
+
+
      const message1=document.querySelector("#message1").value.trim();
+     localStorage.setItem('message2',JSON.stringify(message1))
+     console.log(localStorage.getItem('message2'))
+
      
     let isFormValid = formValidation(name, email, message)
 
 console.log(`isFormValid: ${isFormValid}`)
-    if (formValidation(name,email,message)) {
-        console.log({name, email, message})
+
+    if (isFormValid) {
+        const messages = JSON.parse(localStorage.getItem('messages')) || [];
+        messages.push({name, email, message});
+        localStorage.setItem('messages', JSON.stringify(messages));
+        console.log(messages)
+
+        
     }
 
      
@@ -313,41 +329,7 @@ console.log(JSON.parse(localStorage.getItem('favourite'))[1]);
 
 
 
-const contactForm1=
-document.getElementById('contact-form');
 
-contactForm.addEventListener("submit", function(event) {
-    event.preventDefault()
-
-
-const name =
-document.getElementById("name").value;
-const email =
-document.getElementById("email").value;
-const message1 =
-document.getElementById("message1").value;
-
-const formDate = {
-    name:name,
-    email:email,
-    message1:message1
-};
-
-let savedDate =
-JSON.parse(localStorage.getItem('contactDate'));
-
-savedDate. push (formDate);
-
-localStorage.setItem("contactDate",
-    JSON.stringify(savedDate)
-);
-
-document.getElementById("form-success"). textContent="message saved successfully"
-
-
-contactForm.reset();
-console.log("saved Data:", savedDate);
-});
 
 
 
