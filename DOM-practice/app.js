@@ -328,7 +328,7 @@ console.log(localStorage.getItem('favourite'))
 console.log(JSON.parse(localStorage.getItem('favourite'))[1]);
 
 
-
+ 
 
 
 
