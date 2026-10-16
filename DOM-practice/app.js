@@ -98,9 +98,14 @@ if (hours < 12) {
 const greetingElement = document.querySelector("#greeting");
 greetingElement.textContent = `Good ${timeOfDay}! thank you!`
 
-const navToggle = document.querySelector('#navToggle');
-const siteNav = document.querySelector('#siteNav');
+const navToggle = document.querySelector('#navToggle')
+//const heading = document.querySelector('h1');
 
+//heading.addEventListener('click', function(event) {
+   // console.log(`you clicked: `, event.target.textContent)
+   // heading.classList.toggle('clicked-demo')
+//})
+const siteNav = document.querySelector('#siteNav');
  navToggle.addEventListener('click', function() {
      siteNav.classList.toggle('nav-open');
 });
@@ -108,6 +113,7 @@ const siteNav = document.querySelector('#siteNav');
 const themeToggle = document.querySelector("#darkAndLight")
 themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('darkMode');
+
     if (document.body.classList.contains('darkMode')) {
          localStorage.setItem('theme', 'dark')
     } else { 
@@ -121,7 +127,7 @@ themeToggle.addEventListener('click', function() {
 
 
 const message = document.querySelector('#message');
-const chartCount = document.querySelector('#chartC ount');
+const chartCount = document.querySelector('#chartCtount');
 
  if(message && chartCount) {
 message.addEventListener('input', function(event) {
